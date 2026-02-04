@@ -12,7 +12,7 @@ arr.forEach(button => {
 
         if (value === '=') {
             try {
-                string = eval(string);
+                string = eval(string.replace(/%/g, "/100"));
                 input.value = string;
             } catch {
                 input.value = 'Error';
@@ -30,3 +30,4 @@ arr.forEach(button => {
         }
     });
 });
+
