@@ -1,33 +1,62 @@
-let input = document.getElementById('inputBox');
+let inputBox = document.getElementById('inputBox');
 let buttons = document.querySelectorAll('button');
 
-let string = "";
-let arr = Array.from(buttons);
-arr.forEach(button => {
-    button.addEventListener('click', (e) => {
-        let value = e.target.innerHTML;
+let expression = '';
+let operators = ['+', '-', '*', '/', '%'];
 
-        // NOTE: eval() is used here for simplicity.
-        // In production apps, a safer parsing approach should be used.
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        let value = button.innerText;
 
+        // Clear all
+        if (value === 'AC') {
+            expression = '';
+            inputBox.value = '0';
+            return;
+        }
+
+        // Delete last character
+        if (value === 'DEL') {
+            expression = expression.slice(0, -1);
+            inputBox.value = expression || '0';
+            return;
+        }
+
+        // Calculate result
         if (value === '=') {
             try {
-                string = eval(string.replace(/%/g, "/100"));
-                input.value = string;
+                let result = eval(
+                    expression.replace(/%/g, '/100')
+                );
+                expression = result.toString();
+                inputBox.value = expression;
             } catch {
-                input.value = 'Error';
-                string = '';
+                inputBox.value = 'Error';
+                expression = '';
             }
-        } else if (value === 'AC') {
-            string = "";
-            input.value = "0";
-        } else if (value === 'DEL') {
-            string = string.slice(0, -1);
-            input.value = string || '0';
-        } else {
-            string += value;
-            input.value = string;
+            return;
         }
+
+        // Prevent consecutive operators
+        let lastChar = expression.slice(-1);
+        if (
+            operators.includes(value) &&
+            operators.includes(lastChar)
+        ) {
+            return;
+        }
+
+        // Prevent multiple decimals in one number
+        if (value === '.') {
+            let lastNumber = expression
+                .split(/[\+\-\*\/%]/)
+                .pop();
+
+            if (lastNumber.includes('.')) return;
+        }
+
+        // Append value
+        expression += value;
+        inputBox.value = expression;
     });
 });
-
