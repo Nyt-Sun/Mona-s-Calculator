@@ -1,35 +1,66 @@
-# Mona's Calculator App
+# 🧮 Mona’s Calculator App
 
-**Mona** is a simple, web-based calculator built with HTML, CSS, and JavaScript.  
-It performs basic arithmetic operations and has a user-friendly interface.
-
----
-
-## Features
-
-- Addition, subtraction, multiplication, division, and percentage operations
-- `DEL` button to delete the last character
-- `AC` button to clear all input
-- Decimal support
-- Responsive and visually styled buttons
-- Works in all modern web browsers
+**Mona’s Calculator** is a clean, responsive, web-based calculator built using **HTML, CSS, and JavaScript**.
+It supports essential arithmetic operations with a simple, intuitive interface designed for everyday use.
 
 ---
 
-## How to Use
+## ✨ Features
 
-1. Open `index.html` in your browser.  
-2. Click the number and operator buttons to enter calculations.  
-3. Press `=` to compute the result.  
-4. Use `DEL` to remove the last input and `AC` to reset.
+* ➕➖✖️➗ Basic arithmetic operations
+* 📊 Percentage (`%`) calculation
+* 🧹 **AC** button to clear all input
+* ⌫ **DEL** button to remove the last character
+* 🔢 Decimal number support
+* 🎨 Modern, responsive UI design
+* 🌐 Works across all modern web browsers
 
 ---
 
-## Project Structure
+## 🚀 How to Use
+
+1. Open the `index.html` file in your web browser
+2. Click the number and operator buttons to build an expression
+3. Press **`=`** to calculate the result
+4. Use **`DEL`** to erase the last entry
+5. Use **`AC`** to reset the calculator
+
+---
+
+## 🗂️ Project Structure
+
+```
 MonaCalculator/
-├── index.html ← Main HTML file
+│
+├── index.html        # Main HTML file
 ├── css/
-│ └── style.css ← Styling for the calculator
+│   └── style.css     # Calculator styling
 └── js/
-└── script.js ← JavaScript functionality
+    └── script.js     # Calculator logic
+```
 
+---
+
+## 🛠️ Built With
+
+* **HTML5** – structure
+* **CSS3** – layout and design
+* **JavaScript (ES6)** – functionality and logic
+
+---
+
+## 📌 Notes
+
+* This project uses JavaScript’s `eval()` function for calculation simplicity
+* Input is restricted to button clicks for safer evaluation
+
+---
+
+## 🌱 Future Improvements
+
+* Keyboard input support
+* Scientific calculator mode
+* Light / Dark theme toggle
+* Improved expression parsing without `eval()`
+
+---
