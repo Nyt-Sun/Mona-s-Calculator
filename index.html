@@ -1,55 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona's Calculator App</title>
-    <link rel="stylesheet" href="CSS/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mona's Calculator App</title>
+
+  <!-- PWA & Theme -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <meta name="theme-color" content="#1a1a1a">
+
+  <!-- Apple / iOS Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Mona's Calculator App">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>MONA</h2>
-        <div class="calculator">
-            <input type="text" id="inputBox" placeholder="0" readonly>
+  <div class="container">
+    <h2>MONA</h2>
+    <div class="calculator">
+      <input type="text" id="inputBox" placeholder="0" readonly>
 
-            <div>
-                <button class="button operator">DEL</button>
-                <button class="button operator">AC</button>
-                <button class="button operator">%</button>
-                <button class="button operator">/</button>
-            </div>
+      <div>
+        <button class="button operator">DEL</button>
+        <button class="button operator">AC</button>
+        <button class="button operator">%</button>
+        <button class="button operator">/</button>
+      </div>
 
-            <div>
-                <button class="button">7</button>
-                <button class="button">8</button>
-                <button class="button">9</button>
-                <button class="button operator">*</button>
-            </div>
+      <div>
+        <button class="button">7</button>
+        <button class="button">8</button>
+        <button class="button">9</button>
+        <button class="button operator">*</button>
+      </div>
 
-            <div>
-                <button class="button">4</button>
-                <button class="button">5</button>
-                <button class="button">6</button>
-                <button class="button operator">-</button>
-            </div>
+      <div>
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button operator">-</button>
+      </div>
 
-            <div>
-                <button class="button">1</button>
-                <button class="button">2</button>
-                <button class="button">3</button>
-                <button class="button operator">+</button>
-            </div>
+      <div>
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button operator">+</button>
+      </div>
 
-            <div>
-                <button class="button">00</button>
-                <button class="button">0</button>
-                <button class="button">.</button>
-                <button class="button equalBtn">=</button>
-            </div>
-        </div>
+      <div>
+        <button class="button">00</button>
+        <button class="button">0</button>
+        <button class="button">.</button>
+        <button class="button equalBtn">=</button>
+      </div>
     </div>
+  </div>
 
-    <script src="js/script.js"></script>
+  <!-- JS -->
+  <script src="js/script.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered!', reg))
+          .catch(err => console.log('Service Worker failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>
-
