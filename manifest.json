@@ -2,7 +2,7 @@
   "name": "Mona's Calculator App",
   "short_name": "Calculator",
   "description": "A fast offline calculator PWA with a sleek interface.",
-  "start_url": "./index.html?source=pwa",
+  "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#1a1a1a",
@@ -21,3 +21,4 @@
     }
   ]
 }
+
