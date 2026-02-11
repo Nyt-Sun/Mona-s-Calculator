@@ -4,7 +4,7 @@ const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./offline.html",
-  "./css/style.css",
+  "./Css/style.css",
   "./js/script.js",
   "./manifest.json",
   "./icons/icon-192.png",
@@ -45,3 +45,4 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
