@@ -1,4 +1,5 @@
 {
+  "id": "/Mona-s-Calculator/index.html",
   "name": "Mona's Calculator App",
   "short_name": "Calculator",
   "description": "A fast offline calculator PWA with a sleek interface.",
@@ -21,6 +22,3 @@
     }
   ]
 }
-
-
-
