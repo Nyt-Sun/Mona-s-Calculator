@@ -13,21 +13,18 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     const value = button.innerText;
 
-    // Clear all
     if (value === 'AC') {
       expression = '';
       inputBox.value = '0';
       return;
     }
 
-    // Delete last character
     if (value === 'DEL') {
       expression = expression.slice(0, -1);
       inputBox.value = expression || '0';
       return;
     }
 
-    // Calculate result
     if (value === '=') {
       try {
         const result = eval(expression.replace(/%/g, '/100'));
@@ -40,17 +37,14 @@ buttons.forEach(button => {
       return;
     }
 
-    // Prevent consecutive operators
     const lastChar = expression.slice(-1);
     if (operators.includes(value) && operators.includes(lastChar)) return;
 
-    // Prevent multiple decimals in one number
     if (value === '.') {
       const lastNumber = expression.split(/[\+\-\*\/%]/).pop();
       if (lastNumber.includes('.')) return;
     }
 
-    // Append value
     expression += value;
     inputBox.value = expression;
   });
@@ -61,13 +55,11 @@ buttons.forEach(button => {
 // =======================
 let deferredPrompt;
 
-// Wait for service worker to be ready
 navigator.serviceWorker.ready.then(() => {
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
 
-    // Only create the install button if it doesn't exist
     if (document.getElementById('installBtn')) return;
 
     const installBtn = document.createElement('button');
@@ -96,7 +88,6 @@ navigator.serviceWorker.ready.then(() => {
   });
 });
 
-// Hide install button if app is already installed
 window.addEventListener('appinstalled', () => {
   const btn = document.getElementById('installBtn');
   if (btn) btn.style.display = 'none';
