@@ -1,4 +1,4 @@
-const CACHE_NAME = "mona-calculator-v2";
+const CACHE_NAME = "mona-calculator-v3";
 
 const FILES_TO_CACHE = [
   "./",
@@ -45,5 +45,6 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
 
 
