@@ -1,9 +1,10 @@
 {
-  "id": "/Mona-s-Calculator/index.html",
+  "id": "/Mona-s-Calculator/",
   "name": "Mona's Calculator App",
   "short_name": "Calculator",
   "description": "A fast offline calculator PWA with a sleek interface.",
-  "start_url": "./index.html",
+  "start_url": "/Mona-s-Calculator/",
+  "scope": "/Mona-s-Calculator/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#1a1a1a",
