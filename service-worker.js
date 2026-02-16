@@ -1,14 +1,13 @@
 const CACHE_NAME = "mona-calculator-v3";
-
 const FILES_TO_CACHE = [
-  "./",
-  "./index.html",
-  "./offline.html",
-  "./CSS/style.css",
-  "./js/script.js",
-  "./manifest.json",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "/Mona-s-Calculator/",
+  "/Mona-s-Calculator/index.html",
+  "/Mona-s-Calculator/offline.html",
+  "/Mona-s-Calculator/CSS/style.css",
+  "/Mona-s-Calculator/js/script.js",
+  "/Mona-s-Calculator/manifest.json",
+  "/Mona-s-Calculator/icons/icon-192.png",
+  "/Mona-s-Calculator/icons/icon-512.png"
 ];
 
 // Install – cache app shell
@@ -39,12 +38,9 @@ self.addEventListener("fetch", event => {
 
       return fetch(event.request).catch(() => {
         if (event.request.mode === "navigate") {
-          return caches.match("./offline.html");
+          return caches.match("/Mona-s-Calculator/offline.html");
         }
       });
     })
   );
 });
-
-
-
