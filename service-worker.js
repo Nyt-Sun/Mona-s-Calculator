@@ -1,4 +1,4 @@
-const CACHE_NAME = "mona-calculator-v3";
+const CACHE_NAME = "mona-calculator-v4"; // incremented version
 const FILES_TO_CACHE = [
   "/Mona-s-Calculator/",
   "/Mona-s-Calculator/index.html",
