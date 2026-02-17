@@ -1,7 +1,7 @@
-const CACHE_NAME = "mona-calculator-v4"; // incremented version
+const CACHE_NAME = "mona-calculator-v5"; // incremented version
 const FILES_TO_CACHE = [
-  "/Mona-s-Calculator/",
-  "/Mona-s-Calculator/index.html",
+  "/Mona-s-Calculator/",                  // start URL
+  "/Mona-s-Calculator/index.html",        // exact file
   "/Mona-s-Calculator/offline.html",
   "/Mona-s-Calculator/CSS/style.css",
   "/Mona-s-Calculator/js/script.js",
@@ -15,7 +15,7 @@ self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
-  self.skipWaiting();
+  self.skipWaiting(); // activate immediately
 });
 
 // Activate – clean old caches
@@ -27,7 +27,7 @@ self.addEventListener("activate", event => {
       )
     )
   );
-  self.clients.claim();
+  self.clients.claim(); // take control of pages immediately
 });
 
 // Fetch – cache first, fallback to offline
@@ -37,8 +37,9 @@ self.addEventListener("fetch", event => {
       if (cachedResponse) return cachedResponse;
 
       return fetch(event.request).catch(() => {
+        // If navigation request fails, show offline page
         if (event.request.mode === "navigate") {
-          return caches.match("/Mona-s-Calculator/offline.html");
+          return caches.match("/Mona-s-Calculator/index.html"); // use start_url
         }
       });
     })
