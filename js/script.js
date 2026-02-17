@@ -55,36 +55,34 @@ buttons.forEach(button => {
 // =======================
 let deferredPrompt;
 
-navigator.serviceWorker.ready.then(() => {
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
 
-    if (document.getElementById('installBtn')) return;
+  if (document.getElementById('installBtn')) return;
 
-    const installBtn = document.createElement('button');
-    installBtn.id = 'installBtn';
-    installBtn.innerText = 'Install App';
-    installBtn.style.position = 'fixed';
-    installBtn.style.bottom = '20px';
-    installBtn.style.right = '20px';
-    installBtn.style.padding = '12px 20px';
-    installBtn.style.fontSize = '18px';
-    installBtn.style.backgroundColor = '#fb7c14';
-    installBtn.style.color = 'white';
-    installBtn.style.border = 'none';
-    installBtn.style.borderRadius = '12px';
-    installBtn.style.cursor = 'pointer';
-    installBtn.style.zIndex = '999';
-    document.body.appendChild(installBtn);
+  const installBtn = document.createElement('button');
+  installBtn.id = 'installBtn';
+  installBtn.innerText = 'Install App';
+  installBtn.style.position = 'fixed';
+  installBtn.style.bottom = '20px';
+  installBtn.style.right = '20px';
+  installBtn.style.padding = '12px 20px';
+  installBtn.style.fontSize = '18px';
+  installBtn.style.backgroundColor = '#fb7c14';
+  installBtn.style.color = 'white';
+  installBtn.style.border = 'none';
+  installBtn.style.borderRadius = '12px';
+  installBtn.style.cursor = 'pointer';
+  installBtn.style.zIndex = '999';
+  document.body.appendChild(installBtn);
 
-    installBtn.addEventListener('click', async () => {
-      installBtn.style.display = 'none';
-      deferredPrompt.prompt();
-      const choiceResult = await deferredPrompt.userChoice;
-      console.log('User choice:', choiceResult.outcome);
-      deferredPrompt = null;
-    });
+  installBtn.addEventListener('click', async () => {
+    installBtn.style.display = 'none';
+    deferredPrompt.prompt();
+    const choiceResult = await deferredPrompt.userChoice;
+    console.log('User choice:', choiceResult.outcome);
+    deferredPrompt = null;
   });
 });
 
